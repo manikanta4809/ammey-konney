@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <img src="{{order.product.image.url}}" class="mx=auto img-fluid">
+        <ul class="list-group">
+            <li class="list-group-item">Name: {{order.product.name}}</li>
+            <li class="list-group-item">Price: {{order.product.price}}</li>
+            <li class="list-group-item">Description: {{order.product.description}}</li>
+            <li class="list-group-item">Quantity: {{order.quantity}}</li>
+            <li class="list-group-item">Payment: {{order.paid}}</li>
+            <li class="list-group-item">ordered at: {{order.created}}</li>
+            {% if user.is_staff%}
+                <li class="list-group-item"><a class="btn btn-outline-success" href="{% url 'payment' order.id %}"> Edit Payment </a> </li>
+            {% endif %}
+            <li class="list-group-item"><a class="btn btn-outline-danger" href="{% url 'order-delete' order.id %}"> Delete Order </a> </li>
+        </ul>
+        <br>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <img src="{{product.image.url}}" class="mx=auto img-fluid">
+        <ul class="list-group">
+            <li class="list-group-item">{{product.name}}</li>
+            <li class="list-group-item">{{product.price}}</li>
+            <li class="list-group-item">{{product.description}}</li>
+            {% if user.is_staff%}
+                <li class="list-group-item"><a class="btn btn-outline-dark" href="{% url 'order-spot-create' product.id %}">Order</a></li>
+                <li class="list-group-item"><a class="btn btn-outline-dark" href="{% url 'product-update' product.id %}"> Edit Product details </a> </li>
+                <li class="list-group-item"><a class="btn btn-outline-danger" href="{% url 'product-delete' product.id %}"> Delete Product </a> </li>
+            {% endif %}
+        </ul>
+        <br>
+    </div>
+{% endblock %}

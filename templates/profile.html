@@ -1,0 +1,15 @@
+
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <br>
+    <div class="mx-5 bg-light rounded-3 ">
+        <br>
+        <h2 class="bg-light mx-5 px-2 rounded-3" > User name : {{user.username}}</h2>
+        <br>
+        <h2 class="bg-light mx-5 px-2 rounded-3" > email id : {{user.email}}</h2>
+        <br>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <h1>Create order</h1>
+        <form method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4 p-2">Order Item</legend>
+                {{ form|crispy }}
+                {{ form1|crispy }}
+            </fieldset>
+            <button class="btn btn-outline-dark my-2 " type="submit">Submit</button>
+        </form>
+        <br>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="container rounded-4" style=" width: 80%;">
+        <h1>Edit Product</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-outline-dark my-2 " type="submit">Submit</button>
+        </form>
+        <br>
+    </div>
+{% endblock content %}
